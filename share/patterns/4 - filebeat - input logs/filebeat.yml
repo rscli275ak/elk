@@ -24,7 +24,6 @@ setup.kibana:
 #output.elasticsearch:
 # hosts: ["192.168.20.102:9200"]
 
-
 output.logstash:
   hosts: ["192.168.20.102:5044"]
 
