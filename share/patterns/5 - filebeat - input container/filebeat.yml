@@ -1,15 +1,7 @@
 filebeat.inputs:
-- type: log
-  enabled: true
+- type: container
   paths:
-    - /var/log/nginx/access*.log
-  exclude_lines: ["^127.0.0.1"]
-  exclude_files: [".gz$"]
-  ignore_older: 24h
-  tags: ["log"] # Add log tag to tags list
-  fields:
-    env: prod    # Add fields.env to elastic index -> the pattern must be refresh in kibana
-    owner: nginx # Add fields.owner to elastic index -> the pattern must be refresh in kibana
+    - '/var/lib/docker/containers/*/*.log'
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
